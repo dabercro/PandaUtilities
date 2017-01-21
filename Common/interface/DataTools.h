@@ -4,6 +4,7 @@
 
 #include "Common.h"
 #include "TString.h"
+#include "string.h"
 
 /** \file DataTools.h
  * \brief Tools used to deal with CMS detector metadata
@@ -13,6 +14,18 @@
 
 
 //////////////////////////////////////////////////////////////////////////////////
+
+inline
+bool matchTriggerName(std::string pattern, std::string name) {
+	if (pattern.size() > name.size())
+		return false;
+	unsigned nC = pattern.size();
+	for (unsigned iC=0; iC!=nC; ++iC) {
+		if (pattern[iC] != name[iC])
+			return false;
+	}
+	return true;
+}
 
 class EraHandler {
   public:
@@ -58,7 +71,7 @@ class EraHandler {
         return "";
       }
       unsigned int eraIdx = bins->bin(runNumber);
-      return eraNames[eraIdx];
+      return eraNames.at(eraIdx);
     }
   private:
     std::vector<double> runBounds;

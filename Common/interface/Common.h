@@ -295,10 +295,14 @@ class Binner {
      * \brief Returns a bin
      */
     unsigned int bin(double x) {
-      for (unsigned int iB=0; iB!=nB; ++iB) {
+			if (x<bounds.at(0)) 
+				return 0;
+
+      for (unsigned int iB=1; iB!=nB; ++iB) {
         if (x<bounds.at(iB))
-          return iB;
+          return iB-1;
       }
+
       return nB-1; // return top bin if out of bounds
     }
     /**
