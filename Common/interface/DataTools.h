@@ -46,7 +46,7 @@ class EraHandler {
 					             277772,
 					             278820,
 					             280919,
-					             284044};
+					             284045};
 					eraNames = {"B","C","D","E","F","G","H"};
 					bins = new Binner(runBounds);
 					break;

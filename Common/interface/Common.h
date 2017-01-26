@@ -303,7 +303,7 @@ class Binner {
 					return iB-1;
 			}
 
-			return nB-1; // return top bin if out of bounds
+			return nB-2; // return top bin if out of bounds
 		}
 		/**
 		 * \brief Returns max boundary
