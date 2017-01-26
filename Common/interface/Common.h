@@ -58,7 +58,7 @@ inline void activateBranch(TTree *t, const char *bname, void *address) {
  * \brief Prints to info stdout
  */
 inline void PInfo(const char *module, const char *msg, const char *newline="\n") {
-					printf("\033[0;32mINFO\033[0m		[%-40s]: %s%s",module,msg,newline);
+					printf("\033[0;32mINFO\033[0m    [%-40s]: %s%s",module,msg,newline);
 }
 
 /**
@@ -68,7 +68,7 @@ inline void PInfo(const char *module, const char *msg, const char *newline="\n")
  * \brief Prints debug to	stderr
  */
 inline void PDebug(const char *module, const char *msg, const char *newline="\n") {
-	fprintf(stderr,"\033[0;36mDEBUG\033[0m	 [%-40s]: %s%s",module,msg,newline);
+	fprintf(stderr,"\033[0;36mDEBUG\033[0m   [%-40s]: %s%s",module,msg,newline);
 }
 
 /**
@@ -88,7 +88,7 @@ inline void PWarning(const char *module, const char *msg, const char *newline="\
  * \brief Prints error to	stderr
  */
 inline void PError(const char *module, const char *msg, const char *newline="\n") {
-	fprintf(stderr,"\033[0;41mERROR\033[0m	 [%-40s]: %s%s",module,msg,newline);
+	fprintf(stderr,"\033[0;41m\033[1;37mERROR\033[0m   [%-40s]: %s%s",module,msg,newline);
 }
 
 /**
