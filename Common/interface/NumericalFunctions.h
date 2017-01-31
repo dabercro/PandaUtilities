@@ -23,6 +23,14 @@ inline double Mxx(double pt1, double eta1, double phi1, double m1, double pt2, d
 	return (v1+v2).M();
 }
 
+inline double MT(double pt1, double phi1, double pt2, double phi2)
+{
+	TLorentzVector v1,v2;
+	v1.SetPtEtaPhiM(pt1,0,phi1,0);
+	v2.SetPtEtaPhiM(pt2,0,phi2,0);
+	return (v1+v2).M();
+}
+
 /**
  * \brief Signed delta-phi
  */
