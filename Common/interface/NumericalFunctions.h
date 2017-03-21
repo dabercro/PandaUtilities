@@ -4,11 +4,14 @@
 #include "TLorentzVector.h" 
 #include "TMath.h"
 
+#ifndef PI
 #define PI 3.141592654
+#endif
 
 /** \file NumericalFunctions.h
  * \brief Some numerical functions
  * \author S. Narayanan
+ * \author Daniel Abercrombie <dabercro@mit.edu>
  */
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -44,6 +47,13 @@ inline double SignedDeltaPhi(double phi1, double phi2) {
 }
 
 /**
+ * \brief Unsigned delta-phi
+ */
+inline double UnsignedDeltaPhi(double phi1, double phi2) {
+  return fabs(SignedDeltaPhi(phi1, phi2));
+}
+
+/**
  * \brief Calculates the delta-R-squared metric
  */
 inline double DeltaR2(double eta1, double phi1, double eta2, double phi2) {
@@ -59,6 +69,13 @@ inline double ExpErf(double x, double a, double b, double c) {
 	double exp_ = TMath::Exp(c*x);
 	double erf_ = TMath::Erf((x-a)/b);
 	return exp_*(1+erf_)/2;
+}
+
+/**
+ * \brief Calculates delta-R
+ */
+inline double DeltaR(double eta1, double phi1, double eta2, double phi2) {
+  return TMath::Sqrt(DeltaR2(eta1, phi1, eta2, phi2));
 }
 
 #endif
