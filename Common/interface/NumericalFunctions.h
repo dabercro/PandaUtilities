@@ -37,7 +37,7 @@ inline double MT(double pt1, double phi1, double pt2, double phi2)
 /**
  * \brief Signed delta-phi
  */
-inline double SignedDeltaPhi(double phi1, double phi2) {
+inline double SignedDeltaPhi(float phi1, float phi2) {
 	double dPhi = phi1-phi2;
 	if (dPhi<-PI)
 		dPhi = 2*PI+dPhi;
@@ -49,16 +49,16 @@ inline double SignedDeltaPhi(double phi1, double phi2) {
 /**
  * \brief Unsigned delta-phi
  */
-inline double UnsignedDeltaPhi(double phi1, double phi2) {
+inline double UnsignedDeltaPhi(float phi1, float phi2) {
   return fabs(SignedDeltaPhi(phi1, phi2));
 }
 
 /**
  * \brief Calculates the delta-R-squared metric
  */
-inline double DeltaR2(double eta1, double phi1, double eta2, double phi2) {
-	float dEta2 = (eta1-eta2); dEta2 *= dEta2;
-	float dPhi = SignedDeltaPhi(phi1,phi2);
+inline double DeltaR2(float eta1, float phi1, float eta2, float phi2) {
+	double dEta2 = (eta1-eta2); dEta2 *= dEta2;
+	double dPhi = SignedDeltaPhi(phi1,phi2);
 	return dEta2 + dPhi*dPhi;
 }
 
@@ -74,7 +74,7 @@ inline double ExpErf(double x, double a, double b, double c) {
 /**
  * \brief Calculates delta-R
  */
-inline double DeltaR(double eta1, double phi1, double eta2, double phi2) {
+inline double DeltaR(float eta1, float phi1, float eta2, float phi2) {
   return TMath::Sqrt(DeltaR2(eta1, phi1, eta2, phi2));
 }
 
