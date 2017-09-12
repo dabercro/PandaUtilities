@@ -78,4 +78,22 @@ inline double DeltaR(float eta1, float phi1, float eta2, float phi2) {
   return TMath::Sqrt(DeltaR2(eta1, phi1, eta2, phi2));
 }
 
+
+/// Calculate uPerp given reconstructed recoil and boson phi
+double uPerp(float recoil, float recoilPhi, float zPhi)
+{
+  TLorentzVector recoilvec;
+  recoilvec.SetPtEtaPhiM(recoil,0,recoilPhi + TMath::Pi() - zPhi,0);
+  return recoilvec.Py();
+}
+
+/// Calculate uPara given reconstructed recoil and boson phi
+double uPara(float recoil, float recoilPhi, float zPhi)
+{
+  TLorentzVector recoilvec;
+  recoilvec.SetPtEtaPhiM(recoil,0,recoilPhi + TMath::Pi() - zPhi,0);
+  return recoilvec.Px();
+}
+
+
 #endif
